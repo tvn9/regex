@@ -9,17 +9,17 @@ import (
 )
 
 func match(arr ...[]string) []string {
-	newArr := []string{}
+	var newArr []string
 	for _, phoneNums := range arr {
 		if len(phoneNums) > 0 {
-			match := regexp.MustCompile(`801-...-....`)
-			for _, found := range phoneNums {
-				if match.MatchString(found) {
-					newArr = append(newArr, found)
+			match := regexp.MustCompile(`^801-`)
+			for _, phNum := range phoneNums {
+				if match.MatchString(phNum) {
+					newArr = append(newArr, phNum)
 				}
 			}
 		} else {
-			fmt.Println("Found empty array!")
+			fmt.Println("Found an empty phone listing")
 		}
 	}
 	return newArr
