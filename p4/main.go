@@ -10,8 +10,9 @@ import (
 
 func matchDay(str, repStr string) string {
 	newString := str
-	reg1 := `\b\w{1,4}?day\b`
-	match := regexp.MustCompile(reg1)
+	// reg1 := `\b\w{1,4}?day\b`
+	tuesday := `\bTu\w{1,3}?day\b`
+	match := regexp.MustCompile(tuesday)
 	return match.ReplaceAllString(newString, repStr)
 }
 
@@ -19,7 +20,7 @@ func main() {
 
 	// monday, tuesday, wednesday, thursday, friday, saturday, sunday
 	// find Tuesday, replace with Monday
-	text := "Each and every Tuesday, at the beginning of the day, we hold a staff meeting. At the Tuesday staff meeting, you will need to make a report on the past weeks progress, and you will receive assignments for the following Tuesday. Just be aware that somedays this Tuesday meeting might not occur. When that happens, we will make an announcement."
+	text := "Each and every Tuesday, at Monday the beginning of the day, we hold a staff meeting. At the Tuesday staff meeting, you will need Wednesday to make a report on the past weeks progress, and you will receive assignments for the following Tuesday. Just be aware Thursday that somedays this Tuesday meeting might not occur. When that Friday happens, we will make an announcement."
 
 	replace := "Monday"
 
