@@ -14,8 +14,10 @@ func MatchPhNumber(rwlns []string) []string {
 	phList := []string{}
 	for _, ln := range rwlns {
 		if len(ln) != 0 {
-			match := regexp.MustCompile(`\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}`)
-			str := match.FindString(ln)
+			// match := regexp.MustCompile(`\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}`)
+			// match1 := regexp.MustCompile(`\b\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b`)
+			match2 := regexp.MustCompile(`\b[0-9]{3}[-.\s]?[0-9]{3}[-.\s]?[0-9]{4}\b`)
+			str := match2.FindString(ln)
 			phList = append(phList, str)
 		} else {
 			continue
